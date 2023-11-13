@@ -11,16 +11,16 @@
         <ul class="flex col-span-10 gap-10">
             <li><a href="/" class=" font-semibold text-slate-900 hover:text-slate-500">Home</a></li>
             <li><a href="/students" class=" font-semibold text-slate-900 hover:text-slate-500">Students</a></li>
-            <li class="nav-item"><a class="nav-link" href="/">logout</a></li>
+           
 
 
             <!-- <li class="ml-auto"><a href="/students" class=" font-semibold text-red-700 hover:text-slate-500">Logout</a></li> -->
             
             
             
-            <!-- <ul class="navbar-nav">
+           
                             <li class="nav-item"><a class="nav-link" href=/logout>logout</a></li>
-                        </ul>     -->
+                       
         </ul>
 
 <div class="container">
