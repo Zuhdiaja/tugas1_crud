@@ -17,8 +17,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 // serve langsung ke login
-route::get('/',[StudentController::class,'index'])->middleware('auth');
+
+route::get('/',function(){
+    return view('home',[
+        "nama" => "zuhdi"
+    ]);
+});
+
+route::get('/students',[StudentController::class,'index']);
 
 
 // login logout
@@ -26,6 +35,18 @@ route::get('/login',[AuthController::class, 'login'])->name('login')->middleware
 route::post('/login',[AuthController::class, 'authenticating'])->middleware('guest');
 route::get('/logout',[AuthController::class, 'logout'])->middleware('auth');
 
+
+
 // crud
-route::resource('/students',StudentController::class)->middleware('auth');
+// route::resource('/students',StudentController::class)->middleware('auth');
+
+route::get('/students',[StudentController::class,'index']);
+route::get('/students-add',[StudentController::class, 'create'])->middleware('auth');
+route::post('/students',[StudentController::class,'store'])->middleware('auth');
+route::get('/students/{id}',[StudentController::class, 'show'])->middleware('auth');
+route::get('/students-edit/{id}',[StudentController::class, 'edit'])->middleware('auth');
+route::put('/students/{id}',[StudentController::class, 'update'])->middleware('auth');
+route::delete('/students/{id}',[StudentController::class, 'destroy'])->middleware('auth');
+
+
 
