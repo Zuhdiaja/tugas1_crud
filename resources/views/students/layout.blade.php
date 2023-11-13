@@ -22,8 +22,17 @@
             
             
            
-                            <li class="nav-item"><a class="nav-link" href=/logout>logout</a></li>
-
+                            <!-- <li class="nav-item"><a class="nav-link" href=/logout>logout</a></li> -->
+                   
+                    <li class="nav-item">
+                        @auth
+                        <a class="nav-link" href="/logout">Logout</a>
+                        @endauth
+                        @guest
+                        <a class="nav-link" href="/login">Login</a>
+                        @endguest
+                    </li>
+                
                            
                        
         </ul>

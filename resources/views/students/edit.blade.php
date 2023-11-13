@@ -5,7 +5,7 @@
   <div class="card-header">Edit Student</div>
   <div class="card-body">
        
-      <form action="{{ url('students/' .$students->id) }}" method="post" >
+      <form action="{{ url('students/' .$students->id) }}" method="post" enctype="multipart/form-data">
         {!! csrf_field() !!}
         @method("PUT")
         <input type="hidden" name="id" id="id" value="{{$students->id}}" id="id" />
@@ -16,7 +16,7 @@
         <label>gender</label></br>
         <input type="text" name="gender" id="gender" value="{{$students->gender}}" class="form-control"></br>
 
-        <!-- <div class="mb-3 ">
+        <div class="mb-3 ">
                         <label for="image" class="form-label"></label>
                         <input type="file" name="image" id="image" class="@error('image') is-invalid @enderror">
 
@@ -29,7 +29,7 @@
                             <img src="{{ url('uploads/stundets/'.$student->image) }}" alt="" width="100" height="100">
                         @endif
                         </div>
-                    </div> -->
+                    </div>
           
           <input type="submit" value="Update" class="btn btn-success"></br>
 

@@ -53,9 +53,21 @@ class StudentController extends Controller
     public function update(Request $request, $id)
     {
         $student = Student::find($id);
-        $input = $request->all();
-        $student->update($input);
-       
+        $newName = '';
+        if($request->file('image')->isValid()){
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $newName = $request->name.'-'.now()->timestamp.'.'.$extension;
+            $request->file('image')->storeAs('gambar',$newName);
+
+            // kalau sukses upload maka
+            // 1. hapus file yg lama
+            // 2. update datanya
+
+            // kalau gagal upload, langsung return error
+        }
+
+        $student->update($request->except('image') + ['image' => $newName]);
+
         return redirect('students')->with('flash_message', 'student Updated!');  
     }
  
