@@ -6,7 +6,10 @@
 </head>
 <body>
    
+
+
 <div class="grid grid-cols-12 py-2 px-4 items-center shadow-md w-full">
+
         <img src="{{asset('storage/gambar/logo.png')}}" alt="" class="col-span-2 w-2/3">
         <ul class="flex col-span-10 gap-10">
             <li><a href="/" class=" font-semibold text-slate-900 hover:text-slate-500">Home</a></li>
@@ -20,6 +23,8 @@
             
            
                             <li class="nav-item"><a class="nav-link" href=/logout>logout</a></li>
+
+                           
                        
         </ul>
 
