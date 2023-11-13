@@ -11,7 +11,7 @@
         <input type="text" name="name" id="name" class="form-control"></br>
         <label>nis</label></br>
         <input type="text" name="nis" id="nis" class="form-control"></br>
-        <label>gender</label></br>
+        <label>Jenis Kelamin</label></br>
         <input type="text" name="gender" id="gender" class="form-control"></br>
         <label for ="photo">photo</label></br>
         <input type="file" name="photo" id="photo" class="form-control"></br>
