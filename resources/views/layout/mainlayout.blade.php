@@ -10,7 +10,9 @@
 
 </head>
 <body>
-   <h4 class="lg:mb-2"></h4>
+
+
+
    @yield('content')
 </body>
 </html>

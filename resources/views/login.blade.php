@@ -7,14 +7,15 @@
     <title>laravel 9 |  @yield('title')</title>
      <!-- css -->
      {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> --}}
-     <script src="https://cdn.tailwindcss.com"></script>
+     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
  
 <style>
    
 </style>
 
-<body>
+<body class="">
  
 
    {{-- <div class="w-1/4 mx-auto bg-slate-100 shadow-xl mt-52 flex flex-wrap 
@@ -31,18 +32,18 @@
    </div> --}}
 
       <div class=" w-4/5 sm:w-2/3 md:w-1/2 lg:w-1/4 mx-auto shadow-xl flex flex-wrap justify-center border-slate-700 lg:mt-28 mt-10 py-16 px-10">
-         <h3 class=" font-semibold text-xl text-slate-700 mb-5">Login</h3>
+         <h3 class="font-semibold text-xl text-slate-700 mb-5">Login</h3>
          
          <form method="POST" action="" class="w-full flex flex-wrap justify-center space-y-7">
             @csrf
             <div class="mb-3  gap-3 w-full justify-center space-y-1">
                   <h2 class="font-semibold text-slate-800">Email</h2>
-                  <input type="email" name="email" id="email" class=" w-full text-sm" required placeholder="account@gmail.com">
+                  <input type="email" name="email" id="email" class=" w-full text-sm border-none" required placeholder="account@gmail.com">
                   <hr>
             </div>
             <div class="mb-3 w-full">
                   <h2 class=" font-semibold text-slate-800 space-y-1">Password</h2>
-                  <input type="password" name="password" id="password" class="w-full text-sm " placeholder="Password" required>
+                  <input type="password" name="password" id="password" class="w-full text-sm border-none" placeholder="Password" required>
                   <hr>
             </div>
             

@@ -1,16 +1,16 @@
-@extends('layout.mainlayout')
+@extends('Students.layout')
 
 @section('title', 'home')
 
-
-        <h1>ini halaman home</h1>
-        <h2>selamat datang, {{$name}}. anda adalah {{$role}}</h2>
-
-        @if ($role == 'admin')
-            <a href ="">ke halaman admin</a>
-        @elseif ($role == 'staff')
-            <a href ="">ke halaman gudang</a>
-        @else 
-            <a href ="">ke halaman kosong</a>
-        @endif
-  
+@section('content')
+<div></div>
+    <div class="grid grid-cols-4 h-screen items-center gap-8 p-5  shadow-lg">
+        <div class="col-span-2 justify-end flex">
+        <img src="{{ asset('storage/gambar/home.jpeg') }}" alt="" class="w-2/3 h-fit rounded-lg">
+</div>
+<div class="col-span-2 space-y-10">
+        <h2 class=" text-5xl font-mono font-bold text-slate-800">Welcome </h2>
+        <h2 class="text-5xl font-mono font-bold text-slate-800">to The Club, Admin</h2>
+</div>
+    </div>
+@endsection

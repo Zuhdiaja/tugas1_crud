@@ -55,6 +55,7 @@ class StudentController extends Controller
         $student = Student::find($id);
         $input = $request->all();
         $student->update($input);
+       
         return redirect('students')->with('flash_message', 'student Updated!');  
     }
  
@@ -67,3 +68,20 @@ class StudentController extends Controller
 }
 
 
+
+
+
+
+// if($request->File('photo'))
+// {
+//     $destination = 'uploads/students/'.$student->image;
+//     if (File::exists($destination)) 
+//     {
+//         File::delete($destination);
+//     }
+//     $file = $request->file('image');
+//     $extention = $file->getClientOriginalExtension();
+//     $file = time().'.'.$extention;
+//     $request->move('uploads/students/', $file);
+//     $student->image = $file;
+// }
