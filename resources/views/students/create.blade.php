@@ -28,7 +28,7 @@
 {{-- <div class="card" style="margin:20px;">
   <div class="card-header">Create New Students</div>
   <div class="card-body">
-       
+       {{ $errors }}
       <form action="{{ url('students') }}" method="post" enctype="multipart/form-data">
         {!! csrf_field() !!}
         <label for="name">Name</label></br>

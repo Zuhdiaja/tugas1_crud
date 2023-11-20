@@ -22,9 +22,7 @@ use Illuminate\Support\Facades\Route;
 // serve langsung ke login
 
 route::get('/',function(){
-    return view('home',[
-        "nama" => "zuhdi"
-    ]);
+    return view('home');
 });
 
 route::get('/students',[StudentController::class,'index']);
