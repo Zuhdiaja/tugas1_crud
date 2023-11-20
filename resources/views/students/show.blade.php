@@ -4,9 +4,9 @@
         <div class=" w-1/3 ">
             <img src="{{ asset('storage/gambar/' . $students->image) }}" alt="" class="w-full rounded-xl">
             <h2 class=" text-2xl font-semibold text-slate-700 mt-4">Nama : {{ $students->name }}</h2>
-            @if ($students->gender == 'l')
+            @if ($students->gender == 'L')
                 <h2 class="mt-1 font-semibold text-slate-800 text-lg">Jenis Kelamin : <span class="text-[#0174BE]">Laki-laki</span></h2>
-            @elseif($students->gender == 'p')
+            @elseif($students->gender == 'P')
                 <h2 class="mt-1 font-semibold text-slate-800 text-lg">Jenis Kelamin : <span class="text-[#CE5A67]">Perempuan</span></h2>
             @else
                 <h2>Format Salah</h2>

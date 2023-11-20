@@ -15,8 +15,8 @@
             <hr>
             <h2 class="font-bold text-slate-700 mt-2">Gender</h2>
             <select name="gender" id="gender" class="p-0 border-none w-full " value="{{ $students->gender }}" required>
-                <option value="l">Laki-laki</option>
-                <option value="p">Perempuan</option>
+                <option value="L">Laki-laki</option>
+                <option value="P">Perempuan</option>
             </select>
             <h2 class=" font-bold text-slate-700 mt-2">Pilih Foto</h2>
             <div>

@@ -13,8 +13,8 @@
     <h2 class="font-semibold text-slate-700">Jenis Kelamin</h2>
     <select name="gender" id="gender" class="w-full border-none text-slate-500" required>
       <option value="">--Select One--</option>
-      <option value="l">Laki-laki</option>
-      <option value="p">Perempuan</option>
+      <option value="L">Laki-laki</option>
+      <option value="P">Perempuan</option>
     </select>
     {{-- <input type="text" name="gender" id="gender" class="border-none text-sm w-full py-1 px-0" placeholder="l/p" required> --}}
     <hr class=" mb-5">

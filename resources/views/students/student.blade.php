@@ -5,11 +5,12 @@
 
     <div class=" p-8">
         <a href="{{ url('/students-add') }}" class="ml-auto flex">
-        <button class="bg-green-600 px-5 py-2 hover:bg-green-800 rounded-md  text-white text-sm font-semibold">Tambah Data</button>
-        </a>
+        <button class="bg-green-600 px-5 py-2 hover:bg-green-800 rounded-md  text-white text-sm font-semibold" 
+        data-aos='fade-right' data-aos-duration="1500" data-aos-delay="500">Tambah Data</button>
+        </a> 
         <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-7 mt-5">
             @foreach($students as $item)
-            <div class="">
+            <div class="gambarStudents" data-aos="fade-down" data-aos-delay="2000">
                 <img src="{{ asset('storage/gambar/' .$item->image) }}" alt="" class="w-full h-48 object-cover rounded-xl">
                 <h2 class="text-center mt-4 text-lg font-semibold text-slate-700">{{ $item->name }}</h2>
                 <div class="flex gap-2 mt-2">
@@ -36,6 +37,14 @@
             @endforeach
         </div>
     </div>
+
+    <script>
+        const contentStudents = document.querySelectorAll('.gambarStudents')
+
+        contentStudents.forEach((img, i)=>{
+            img.dataset.aosDelay = i * 100;
+        });
+    </script>
     {{-- <div class="container">
         <div class="row" style="margin:20px;">
             <div class="col-12">
