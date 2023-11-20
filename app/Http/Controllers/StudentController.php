@@ -10,9 +10,14 @@ use App\Models\Student; //add Student Model - Data is coming from the database v
 class StudentController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $student = student::all();
+        $keyword = $request->keyword;
+     
+        $student = student::where ('name', 'LIKE', '%' .$keyword. '%' )
+                          ->orWhere('gender',$keyword)
+                          ->orWhere('NIS','LIKE', '%' .$keyword. '%')
+                          -> get();
         return view('students.student')->with('students', $student);
     }
 
