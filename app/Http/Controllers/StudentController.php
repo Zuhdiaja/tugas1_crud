@@ -13,6 +13,8 @@ class StudentController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->keyword;
+
+        $student = student::latest();
      
         $student = student::where ('name', 'LIKE', '%' .$keyword. '%' )
                           ->orWhere('gender',$keyword)
@@ -48,13 +50,13 @@ class StudentController extends Controller
             'name' => 'required',
             'gender' => 'required|in:L,P',
             'nis' => 'required|max:10',
-            'image' => 'mimes: png,jpeg,jpg'
+            'photo' => 'mimes: png,jpeg,jpg'
         ],
         [
             'name.required'=>'Nama wajib diisi',
             'gender.required'=>'Gender wajib diisi',
             'nis.required'=>'NIS wajib diisi',
-            'image.mimes'=>'Foto wajib diisi',
+            'photo.mimes'=>'Foto wajib diisi',
             'gender.in:L,P'=>'Gender wajib L/P',
             'nis.max'=>'NIS max 10 karakter',
             

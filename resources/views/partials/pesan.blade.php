@@ -22,7 +22,7 @@
     </div>
 
     @if (Session::get('success'))
-    <div>{{ Session::get() }}</div>
+    <div>{{ Session::get('success') }}</div>
         
     @endif
 
