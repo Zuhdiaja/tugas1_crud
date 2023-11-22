@@ -9,44 +9,39 @@ use App\Models\Student; //add Student Model - Data is coming from the database v
 
 class StudentController extends Controller
 {
-
+    
     public function index(Request $request)
     {
+        //request dari keyword yang dicari dari keyword
         $keyword = $request->keyword;
-     
+        //unutk filtering
         $student = student::where ('name', 'LIKE', '%' .$keyword. '%' )
                           ->orWhere('gender',$keyword)
                           ->orWhere('NIS','LIKE', '%' .$keyword. '%')
-                          -> get();
+                          -> paginate(2);
         return view('students.student')->with('students', $student);
     }
 
-
+    //untuk mengcreate data baru
     public function create()
     {
+        //menampilkan
         return view('students.create');
     }
 
+    //program untuk meng create nya
     public function store(Request $request)
     {
 
-        // $validate = validate()::make($request->all(),[
-        //     'name'=> 'required',
-        //     'email' => 'required|email|end_with:.com',
-        //     'image' => 'sometimes|mimes:png,jpeg,jpg'
-        // ],
-        // [
-        //    'name.required' => 'nama harus di isi',
-        //    'email.required' => 'email harus di isi', 
-        //    'email.email' => 'masukkan evai', 
-        // ]);
-
+        //unutk memeriksa data benar atau tidak
         $validate = $request->validate([
             'name' => 'required',
             'gender' => 'in:L,P',
             'nis' => 'required|max:10',
             'image' => 'mimes: png,jpeg,jpg'
         ]);
+
+        //unutk menambah kan foto
         $newName = '';
 
         if ($request->file('photo')) {
@@ -56,23 +51,25 @@ class StudentController extends Controller
         }
         $request['image'] = $newName;
         $student = Student::create($request->all());
-        return redirect('students')->with('flash_message', 'Student Addedd!');
+        return redirect('students')->with('flash_message', 'Student Addedd!');//untuk memberi pesan jika sidah selesai
     }
 
-
+    //untuk menampilkan data
     public function show($id)
     {
-        $student = Student::find($id);
+        $student = Student::find($id); //melalui id
         return view('students.show')->with('students', $student);
     }
 
-
+    //halaman form
     public function edit($id)
     {
         $student = Student::find($id);
+        //menampilkan
         return view('students.edit')->with('students', $student);
     }
 
+    //program untuk meng update nya
     public function update(Request $request, $id)
     {
         $student = Student::find($id);
@@ -86,19 +83,19 @@ class StudentController extends Controller
 
         $tambahan= [];
 
-        if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            $oldImage = $student->image;
+        if ($request->hasFile('image') && $request->file('image')->isValid()) { //untuk memeriksa file dengan nama image
+            $oldImage = $student->image;//enctype
 
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $newName = $request->name . '-' . now()->timestamp . '.' . $extension;
-            $request->file('image')->storeAs('gambar', $newName);
+            $extension = $request->file('image')->getClientOriginalExtension(); //untuk mendapatkan ekstensi file asli sebelum diunggah lll.png to string
+            $newName = $request->name . '-' . now()->timestamp . '.' . $extension; //ekspresi untuk menggabungkan semua informasi di atas menjadi nama file baru.
+            $request->file('image')->storeAs('gambar', $newName); //untuk mengakses dan menyimpan file dengan nama gambar
             $tambahan['image']= $newName;
 
            
 
-            file::delete(public_path() . '/storage/gambar/' . $oldImage);
+            file::delete(public_path() . '/storage/gambar/' . $oldImage);//masuk folder gambar
         }
-        $student->update($request->except('image') + $tambahan);
+        $student->update($request->except('image') + $tambahan); //mengambil input kecuali image //tambahan jika mau yang foto
         return redirect('students')->with('flash_message', 'student Updated!');
     }
 
@@ -108,41 +105,21 @@ class StudentController extends Controller
 
     // kalau gagal upload, langsung return error
 
-    // if ($upload) {
-    //     $delete = File::delete(public_path() . '/storage/photo/' . $oldImage);
-    //     $student->update($request->except('image') + ['image' => $newName]);
-
-
-
 
     public function destroy($id)
     {
-        $student = Student::find($id);
-        $oldImage = $student->image;
-        $delete = file::delete(public_path() . '/storage/gambar/' . $oldImage);
+        $student = Student::find($id);//id
+        $oldImage = $student->image; //menyimpan ni;ai
+        $delete = file::delete(public_path() . '/storage/gambar/' . $oldImage); //berfungsi untuk menghapus file yang diidentifikasi oleh variabel $oldImage
         if ($delete) {
-            Student::destroy($id);
+            Student::destroy($id);//by id
         }
 
-        return redirect('students')->with('flash_message', 'Student deleted!');
+        return redirect('students')->with('flash_message', 'Student deleted!');// pesan berhasil delet
     }
 }
 
 
 
 
-
-
-// if($request->File('photo'))
-// {
-//     $destination = 'uploads/students/'.$student->image;
-//     if (File::exists($destination)) 
-//     {
-//         File::delete($destination);
-//     }
-//     $file = $request->file('image');
-//     $extention = $file->getClientOriginalExtension();
-//     $file = time().'.'.$extention;
-//     $request->move('uploads/students/', $file);
-//     $student->image = $file;
-// }
+//$ parameter

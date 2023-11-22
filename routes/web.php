@@ -48,3 +48,5 @@ route::delete('/students/{id}',[StudentController::class, 'destroy'])->middlewar
 
 
 
+//auth kembali ke login
+//guest bisa dilarikan
