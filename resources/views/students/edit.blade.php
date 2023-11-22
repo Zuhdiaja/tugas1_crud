@@ -8,15 +8,15 @@
             @method('PUT')
             <input type="hidden" name="id" id="id" value="{{ $students->id }}">
             <h2 class="font-bold text-slate-700">Nama</h2>
-            <input type="text" name="name" id="name" value="{{ $students->name }}" class="p-0 w-full border-none" required>
+            <input type="text" name="name" id="name" value="{{ $students->name }}" class="p-0 w-full border-none">
             <hr>
             <h2 class=" font-bold text-slate-700 mt-2">Nis</h2>
-            <input type="number" name="nis" id="nis" value="{{ $students->nis }}" class="p-0 border-none w-full" required>
+            <input type="number" name="nis" id="nis" value="{{ $students->nis }}" class="p-0 border-none w-full">
             <hr>
             <h2 class="font-bold text-slate-700 mt-2">Gender</h2>
-            <select name="gender" id="gender" class="p-0 border-none w-full " value="{{ $students->gender }}" required>
-                <option value="L">L</option>
-                <option value="P">P</option>
+            <select name="gender" id="gender" class="p-0 border-none w-full " value="{{ $students->gender }}">
+                <option value="L">Laki-laki</option>
+                <option value="P">Perempuan</option>
             </select>
             <h2 class=" font-bold text-slate-700 mt-2">Pilih Foto</h2>
             <div>

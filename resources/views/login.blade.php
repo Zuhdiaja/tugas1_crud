@@ -16,6 +16,7 @@
 </style>
 
 <body class="">
+   @include('partials.pesan')
  
 
    {{-- <div class="w-1/4 mx-auto bg-slate-100 shadow-xl mt-52 flex flex-wrap 
@@ -38,12 +39,12 @@
             @csrf
             <div class="mb-3  gap-3 w-full justify-center space-y-1">
                   <h2 class="font-semibold text-slate-800">Email</h2>
-                  <input type="email" name="email" id="email" class=" w-full text-sm border-none" required placeholder="account@gmail.com">
+                  <input type="email" name="email" id="email" class=" w-full text-sm border-none"  placeholder="account@gmail.com">
                   <hr>
             </div>
             <div class="mb-3 w-full">
                   <h2 class=" font-semibold text-slate-800 space-y-1">Password</h2>
-                  <input type="password" name="password" id="password" class="w-full text-sm border-none" placeholder="Password" required>
+                  <input type="password" name="password" id="password" class="w-full text-sm border-none" placeholder="Password" >
                   <hr>
             </div>
             
