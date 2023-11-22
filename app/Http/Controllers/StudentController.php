@@ -50,13 +50,13 @@ class StudentController extends Controller
             'name' => 'required',
             'gender' => 'required|in:L,P',
             'nis' => 'required|max:10',
-            'photo' => 'mimes: png,jpeg,jpg'
+            'photo' => 'required|mimes: png,jpeg,jpg'
         ],
         [
             'name.required'=>'Nama wajib diisi',
             'gender.required'=>'Gender wajib diisi',
             'nis.required'=>'NIS wajib diisi',
-            'photo.mimes'=>'Foto wajib diisi',
+            'photo.required'=>'Foto wajib diisi',
             'gender.in:L,P'=>'Gender wajib L/P',
             'nis.max'=>'NIS max 10 karakter',
             

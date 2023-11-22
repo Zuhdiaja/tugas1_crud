@@ -5,7 +5,7 @@
   <form action="{{ url('students') }}" method="POST" enctype="multipart/form-data" class="w-full mt-8">
     {!! csrf_field() !!}
     <h2 class=" font-semibold text-slate-700">Nama</h2>
-    <input type="text" name="name" id="name" class="border-none text-sm w-full py-1 px-0" placeholder="Nama" >
+    <input type="text" name="name" id="name" class="border-none text-sm w-full py-1 px-0" placeholder="Nama" value="{{old('name')}}">
     <hr class="mb-5">
     <h2 class="font-semibold text-slate-700">Nis</h2>
     <input type="number" name="nis" id="nis" class="border-none text-sm w-full py-1 px-0" placeholder="Nis">
