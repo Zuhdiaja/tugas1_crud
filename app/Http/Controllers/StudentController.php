@@ -20,7 +20,7 @@ class StudentController extends Controller
         $student = student::where ('name', 'LIKE', '%' .$keyword. '%' )
                           ->orWhere('gender',$keyword)
                           ->orWhere('NIS','LIKE', '%' .$keyword. '%')
-                          -> paginate(2);
+                          -> paginate(8);
         return view('students.student')->with('students', $student);
     }
 
@@ -35,17 +35,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {
 
-        // $validate = validate()::make($request->all(),[
-        //     'name'=> 'required',
-        //     'email' => 'required|email|end_with:.com',
-        //     'image' => 'sometimes|mimes:png,jpeg,jpg'
-        // ],
-        // [
-        //    'name.required' => 'nama harus di isi',
-        //    'email.required' => 'email harus di isi', 
-        //    'email.email' => 'masukkan evai', 
-        // ]);
-
+       
         $validate = $request->validate([
             'name' => 'required',
             'gender' => 'required|in:L,P',
@@ -99,8 +89,17 @@ class StudentController extends Controller
             'name' => 'required',
             'gender' => 'in:L,P',
             'nis' => 'required|max:10',
-            'image' => 'image: png,jpeg,jpg'
+            'image' => 'required|mimes:png,jpeg,jpg'
         ],
+        [
+            'name.required'=>'Nama wajib diisi',
+            'gender.required'=>'Gender wajib diisi',
+            'nis.required'=>'NIS wajib diisi',
+            'image.required'=>'Foto wajib diisi',
+            'gender.in:L,P'=>'Gender wajib L/P',
+            'nis.max'=>'NIS max 10 karakter',
+            
+        ]
     
     );
 

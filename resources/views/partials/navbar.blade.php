@@ -11,7 +11,7 @@
 
 <body>
     <div class="coba grid grid-cols-12 lg:py-2 py-0 px-4 items-center bg-white top-0 w-full">
-        <img src="{{ asset('storage/gambar/logoaksa.png') }}" alt=""
+        <img src="{{ asset('storage/gambar/logo.png') }}" alt=""
             class="lg:col-span-2 col-span-6 md:col-span-5 lg:w-2/3 w-1/2">
         <ul class="lg:flex col-span-10 gap-10 hidden">
             <li><a href="/" class=" font-semibold text-slate-900 hover:text-slate-500">Home</a></li>
@@ -76,7 +76,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
         <script>
             gsap.from(".coba", {
-                duration: 1,
+                duration: 1.5,
                 y: '-100%',
                 opacity: 0
                 

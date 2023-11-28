@@ -14,7 +14,7 @@
                 @endforeach
             </ul>
             <button class=" mx-auto flex my-4 px-4 py-1 rounded-full uppercase font-semibold text-sm text-white bg-[#EF6262]">
-                {{-- <img src="{{ asset('storage/gambar/close.png') }}" alt="" class=" w-7 h-7"> --}}
+                
                 Close
             </button>
         </div>

@@ -2,6 +2,7 @@
 @section('content')
   
 <div class="lg:w-1/3 md:w-2/4 w-2/3 mx-auto bg-white shadow-lg p-5 mt-16">
+  <h2 class="text-center text-xl font-semibold text-slate-700">Tambah Data Students</h2>
   <form action="{{ url('students') }}" method="POST" enctype="multipart/form-data" class="w-full mt-8">
     {!! csrf_field() !!}
     <h2 class=" font-semibold text-slate-700">Nama</h2>
@@ -11,12 +12,14 @@
     <input type="number" name="nis" id="nis" class="border-none text-sm w-full py-1 px-0" placeholder="Nis">
     <hr class=" mb-5">
     <h2 class="font-semibold text-slate-700">Jenis Kelamin</h2>
-    <select name="gender" id="gender" class="w-full border-none text-slate-500" >
-      <option value="">--Select One--</option>
-      <option value="L">Laki-laki</option>
+    {{-- <input type="text" name="gender" id="gender" class="border-none text-sm w-full py-1 px-0" placeholder="P/L"> --}}
+    {{-- <select name="gender" >
+      <option value="">Pilih Jenis Kelamin</option>
+      <option value="L">Laki-Laki</option>
       <option value="P">Perempuan</option>
-    </select>
-    {{-- <input type="text" name="gender" id="gender" class="border-none text-sm w-full py-1 px-0" placeholder="l/p" required> --}}
+    </select> --}}
+    <input type="radio" name="gender" value="L" >Laki-Laki
+    <input type="radio" name="gender" value="P" >Perempuan
     <hr class=" mb-5">
     <h2 class="font-semibold text-slate-700">Foto</h2>
     <input type="file" name="photo" id="photo" class="p-0 w-full" >
