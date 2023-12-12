@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\authController;
@@ -50,3 +51,30 @@ route::delete('/students/{id}',[StudentController::class, 'destroy'])->middlewar
 
 //auth kembali ke login
 //guest bisa dilarikan
+
+
+//one to one
+route::get('/students/parents/{id}',[StudentController::class,'parent']);
+
+
+
+route::get('/classroom',[ClassController::class,'index']);
+route::get('/add-class',[ClassController::class,'create']);
+route::post('/classroom',[ClassController::class,'store']);
+route::get('/class-delete/{id}',[ClassController::class,'delete']);
+route::delete('/class-destroy/{id}',[ClassController::class,'destroy']);
+
+
+
+//multiple
+route::get('/multiple',[PostController::class,'index']);
+route::get('/create',function()
+{
+    return view('multiple.create');
+});
+route::post('/post',[PostController::class,'store']);
+route::delete('/delete/{id}',[PostController::class,'destroy']);
+route::get('/edit/{id}',[PostController::class,'edit']);
+route::delete('/deleteimage/{id}',[PostController::class,'deleteimage']);
+route::delete('/deletecover/{id}',[PostController::class,'deletecover']);
+route::put('/update/{id}',[PostController::class,'update']);

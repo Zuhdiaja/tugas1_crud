@@ -16,6 +16,10 @@
         <ul class="lg:flex col-span-10 gap-10 hidden">
             <li><a href="/" class=" font-semibold text-slate-900 hover:text-slate-500">Home</a></li>
             <li><a href="/students" class=" font-semibold text-slate-900 hover:text-slate-500">Students</a></li>
+            <li><a href="/classroom" class=" font-semibold text-slate-900 hover:text-slate-500">class</a></li>
+            <li><a href="/multiple" class=" font-semibold text-slate-900 hover:text-slate-500">galeri</a></li>
+
+
             <li class="ml-auto">
                 @if (Auth::check())
                     <a href="/logout" class=" font-semibold text-red-700 hover:text-slate-500">Logout</a>

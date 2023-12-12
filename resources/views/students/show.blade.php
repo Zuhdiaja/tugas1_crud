@@ -12,13 +12,7 @@
                 <h2>Format Salah</h2>
             @endif
             <h2 class="mt-1 font-semibold text-slate-800 text-lg">Nis : {{ $students->nis }}</h2>
-            <p class=" text-slate-700">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis, consectetur cupiditate quos
-                ad aspernatur illum fugiat, placeat sint recusandae sequi esse aut minima suscipit similique quibusdam
-                exercitationem neque molestiae dolore optio rem eligendi, fugit maiores possimus! Voluptates beatae
-                eligendi quod perferendis nemo ea reprehenderit cum adipisci libero quae voluptas, aperiam reiciendis
-                doloremque non fugit iure perspiciatis assumenda esse consectetur sequi!
-            </p>
+            <h2 class="mt-1 font-semibold text-slate-800 text-lg">kelas : {{ $students->class['name'] }}</h2>
         </div>
     </div>
 
@@ -32,6 +26,7 @@
         <p class="card-text">nis : {{ $students->nis }}</p>
         <p class="card-text">gender : {{ $students->gender }}</p>
         <p class="card-text">image  : {{ $students->image }}</p>
+        <p class="card-text">kelas  : {{ $students->class['name'] }}</p>
         <div class="my-3 d-flex d">
         <img src="{{asset('storage/gambar/'.$students->image)}}" alt=" "width="200px">
         </div>

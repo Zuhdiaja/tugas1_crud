@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\support\Facades\File;
 use Illuminate\support\Facades\Validate;
 use Illuminate\Http\Request;
-use App\Models\Student; //add Student Model - Data is coming from the database via Model.
+use App\Models\Student;
+use App\Models\classroom; //add Student Model - Data is coming from the database via Model.
 
 class StudentController extends Controller
 {
@@ -27,8 +28,9 @@ class StudentController extends Controller
     //untuk mengcreate data baru
     public function create()
     {
+        $class =classroom::select('id','name')->get();
         //menampilkan
-        return view('students.create');
+        return view('students.create', ['class'=>$class]);
     }
 
     //program untuk meng create nya
@@ -40,7 +42,7 @@ class StudentController extends Controller
             'name' => 'required',
             'gender' => 'required|in:L,P',
             'nis' => 'required|max:10',
-            'photo' => 'required|mimes: png,jpeg,jpg'
+            'photo' => 'required|image: png,jpeg,jpg'
         ],
         [
             'name.required'=>'Nama wajib diisi',
@@ -89,7 +91,7 @@ class StudentController extends Controller
             'name' => 'required',
             'gender' => 'in:L,P',
             'nis' => 'required|max:10',
-            'image' => 'required|mimes:png,jpeg,jpg'
+            'image' => 'required|image:png,jpeg,jpg'
         ],
         [
             'name.required'=>'Nama wajib diisi',
@@ -139,9 +141,22 @@ class StudentController extends Controller
 
         return redirect('students')->with('flash_message', 'Student deleted!');// pesan berhasil delet
     }
-}
+
 
 
 
 
 //$ parameter
+
+
+
+
+//one to one
+    public function parent(){
+        $student = student::all();
+        return view('students.parents')->with('students', $student);
+    }
+
+
+
+}
